@@ -102,12 +102,6 @@ Use git clone command or download ZIP folder
 Not yet deployed ...
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## :busts_in_silhouette: Authors <a name="authors"></a>
-:bust_in_silhouette: **KUBAHO LINNE Heaven**
-- GitHub: [@KUBAHO3](https://github.com/KUBAHO3)
-- Twitter: [@KubahoH](https://twitter.com/KubahoH)
-- LinkedIn: [Kubaho Linne Heaven](https://www.linkedin.com/in/kubaho-linne-heaven/)
-
 :bust_in_silhouette: **Joy Phoebe**
 - GitHub: [@joyapisi](https://github.com/joyapisi)
 - Twitter: [@joyphoebe300](https://twitter.com/joyphoebe300)
