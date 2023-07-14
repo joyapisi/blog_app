@@ -12,5 +12,13 @@ RSpec.describe User, type model do
         it { should have_many(:comments).class_name('Comment').with_foreign_key('author_id') }
       end
     
-
+      describe 'recent_posts' do
+        let(:user) { create(:user) }
+        let!(:recent_posts) { create_list(:post, 5, author: user) }
+    
+        it 'returns the most recent 3 posts' do
+          expect(user.recent_posts.count).to eq(3)
+          expect(user.recent_posts).to contain_exactly(*recent_posts.sort_by(&:created_at).reverse.take(3))
+        end
+      end
     end
