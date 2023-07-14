@@ -140,7 +140,7 @@ If you like this project please follow me on github & twitter and also connect o
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/KUBAHO3/blog_post/blob/set-up/MIT.md) licensed.
+This project is [LICENSE](./LICENSE.md) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
