@@ -27,8 +27,8 @@ RSpec.describe Post, type: :model do
     let(:post) { create(:post) }
 
     it 'returns the five most recent comments' do
-      older_comments = create_list(:comment, 3, post: post, created_at: 1.week.ago)
-      recent_comments = create_list(:comment, 5, post: post, created_at: Time.now)
+      older_comments = create_list(:comment, 3, post:, created_at: 1.week.ago)
+      recent_comments = create_list(:comment, 5, post:, created_at: Time.now)
 
       expect(post.recent_comments).to eq(recent_comments)
       expect(post.recent_comments).to_not include(older_comments)

@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :model do
 
   describe '#update_comment_posts_counter' do
     let(:post) { create(:post) }
-    let(:comment) { create(:comment, post: post) }
+    let(:comment) { create(:comment, post:) }
 
     it 'updates the post comments counter' do
       expect { comment.update_comment_posts_counter }.to change { post.reload.comments_counter }.by(1)

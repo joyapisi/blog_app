@@ -8,7 +8,7 @@ RSpec.describe Like, type: :model do
 
   describe '#update_like_posts_counter' do
     let(:post) { create(:post) }
-    let(:like) { create(:like, post: post) }
+    let(:like) { create(:like, post:) }
 
     it 'updates the post likes counter' do
       expect { like.update_like_posts_counter }.to change { post.reload.likes_counter }.by(1)
