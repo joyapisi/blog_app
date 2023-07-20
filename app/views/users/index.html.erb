@@ -1,1 +1,7 @@
 <h1>Users here</h1>
+
+<% @users.each do |user| %>
+
+    <%= render 'shared/users', user: user %>
+    
+<% end %>
