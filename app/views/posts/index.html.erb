@@ -1,1 +1,22 @@
-<h1>Posts here</h1>
+<%= render 'shared/user_profile', user: @user %>
+
+<% @posts.each  do  |post|%>
+<div class="boxed comments_container">
+    <a href="/users/<%= post.author_id%>/posts/<%= post.id %>"><%= post.title%></a>
+        <p>
+           <%= post.text%>
+        </p>
+        <p class="comments_likes">
+            Comments: <%= post.comment_counter %> Likes: <%= post.likes_counter%>
+        </p>
+</div>
+<div class="boxed">
+<% Post.get_5_comments(post).each  do |comment|%>
+    <p><%= comment.author.name%> - <%= comment.text %></p>
+    <%end%>
+</div>
+<br />
+<%end%>
+<div class="buttton_container">
+<button class="all_post_btn">Pagination</button>
+</div>
