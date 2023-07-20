@@ -16,7 +16,7 @@ class Post < ApplicationRecord
 
   def increment_author_posts_counter
     # Use self.author to directly access the associated author without an additional database query.
-    self.author.increment!(:update_user_posts_counter)
+    author.increment!(:update_user_posts_counter)
   end
 end
 
