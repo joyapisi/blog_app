@@ -4,16 +4,12 @@
 
     <div>
         <h1>Bio</h1>
-        <p>
-        <%= @user.bio %>
-        </p>
+        <p><%= @user.bio %></p>
     </div>
 <% User.recent_posts(@user).each do |post| %>
     <div>
         <h1>post <%= post.title %></h1>
-        <p>
-        <%= post.text %>
-        </p>
+        <p><%= post.text %></p>
         <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
     </div>
 <%end%>

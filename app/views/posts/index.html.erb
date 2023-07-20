@@ -3,9 +3,7 @@
 <% @posts.each  do  |post|%>
 <div>
     <a href="/users/<%= post.author_id%>/posts/<%= post.id %>"><%= post.title%></a>
-        <p>
-           <%= post.text%>
-        </p>
+        <p><%= post.text%></p>
         <p>
             Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter%>
         </p>
