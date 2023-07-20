@@ -1,1 +1,21 @@
-<%= render partial: 'post', layout: 'box', locals: { post: @post } %>
+<h1>Posts Show</h1>
+<div>
+<div>
+<div>
+<p><%= @post.title%> by <%= @post.author.name%></P>
+<p>Comments: <%= @post.comments_counter%> likes: <%= @post.likes_counter %></p>
+</div>
+
+<p>
+<%= @post.text%>
+</p>
+</div>
+<br />
+<div>
+    <% @post.comments.each do |comment| %>
+     <p><%= comment.author.name%>: <%= comment.text %></p>
+    <%end%>
+
+</div>
+
+</div>

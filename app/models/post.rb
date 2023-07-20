@@ -3,11 +3,35 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: :post_id
   has_many :likes, foreign_key: :post_id
 
-  before_save -> { User.find_by(id: author.id).increment!(:update_user_posts_counter) }
+  before_save :increment_author_posts_counter, if: -> { author.present? }
 
   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :author_id, presence: true
+
+  private
+
+  def increment_author_posts_counter
+    # Use self.author to directly access the associated author without an additional database query.
+    self.author.increment!(:update_user_posts_counter)
+  end
 end
+
+
+
+# class Post < ApplicationRecord
+#   belongs_to :author, class_name: 'User'
+#   has_many :comments, foreign_key: :post_id
+#   has_many :likes, foreign_key: :post_id
+
+#   before_save -> { User.find_by(id: author.id).increment!(:update_user_posts_counter) }
+
+#   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
+
+#   validates :title, presence: true, length: { maximum: 250 }
+#   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+#   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+# end
