@@ -7,11 +7,11 @@
            <%= post.text%>
         </p>
         <p class="comments_likes">
-            Comments: <%= post.comment_counter %> Likes: <%= post.likes_counter%>
+            Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter%>
         </p>
 </div>
 <div class="boxed">
-<% Post.get_5_comments(post).each  do |comment|%>
+<% Post.recent_comments(post).each  do |comment|%>
     <p><%= comment.author.name%> - <%= comment.text %></p>
     <%end%>
 </div>
