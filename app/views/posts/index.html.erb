@@ -1,20 +1,20 @@
 <%= render 'shared/user_profile', user: @user %>
 
 <% @posts.each  do  |post|%>
-<div>
+<div class="boxes comments-container">
     <a href="/users/<%= post.author_id%>/posts/<%= post.id %>"><%= post.title%></a>
         <p><%= post.text%></p>
-        <p>
+        <p class="likes-comments">
             Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter%>
         </p>
 </div>
-<div>
+<div class="boxes">
 <% Post.recent_comments(post).each  do |comment|%>
     <p><%= comment.author.name%> - <%= comment.text %></p>
     <%end%>
 </div>
 <br />
 <%end%>
-<div id="bottom-button">
-  <button>Pagination</button>
-</div>
+# <div id="bottom-button">
+  <button class="all_post_btn">Pagination</button>
+# </div>

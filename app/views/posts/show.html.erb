@@ -1,7 +1,7 @@
 <h1>Posts Show</h1>
-<div>
-<div>
-<div>
+<div class="show-posts-container">
+<div class="boxes">
+<div class="posts-content">
 <p><%= @post.title%> by <%= @post.author.name%></P>
 <p>Comments: <%= @post.comments_counter%> likes: <%= @post.likes_counter %></p>
 </div>
@@ -11,7 +11,7 @@
 </p>
 </div>
 <br />
-<div>
+<div class="boxes">
     <% @post.comments.each do |comment| %>
      <p><%= comment.author.name%>: <%= comment.text %></p>
     <%end%>

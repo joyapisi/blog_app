@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: :post_id
   has_many :likes, foreign_key: :post_id
 
-  before_save :increment_author_posts_counter, if: -> { author.present? }
+  before_create :increment_author_posts_counter
 
   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
 
@@ -16,7 +16,7 @@ class Post < ApplicationRecord
 
   def increment_author_posts_counter
     # Use self.author to directly access the associated author without an additional database query.
-    author.increment!(:update_user_posts_counter)
+    author.increment(:update_user_posts_counter).save
   end
 end
 
