@@ -21,11 +21,10 @@ class Post < ApplicationRecord
     likes.count
   end
 
-   private
+  private
 
-   def increment_author_posts_counter
+  def increment_author_posts_counter
     author.increment(:update_user_posts_counter)
     author.save
   end
-
 end
