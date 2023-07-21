@@ -87,6 +87,10 @@ button {
     display: flex;
     justify-content: space-around;
   }
+
+  .posts-messages {
+    margin-top: 20px;
+  }
   
   .show-posts-container {
     margin: 20px 40px;
