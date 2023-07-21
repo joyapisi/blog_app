@@ -18,4 +18,3 @@ class Post < ApplicationRecord
     author.increment(:update_user_posts_counter).save
   end
 end
-
