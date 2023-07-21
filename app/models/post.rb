@@ -12,9 +12,20 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :author_id, presence: true
 
-  private
-
-  def increment_author_posts_counter
-    author.increment(:update_user_posts_counter).save
+  def comments_counter
+    comments.count
   end
+
+  # Define likes_counter method to get the count of likes
+  def likes_counter
+    likes.count
+  end
+
+   private
+
+   def increment_author_posts_counter
+    author.increment(:update_user_posts_counter)
+    author.save
+  end
+
 end
