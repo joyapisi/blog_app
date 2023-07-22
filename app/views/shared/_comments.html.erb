@@ -1,0 +1,8 @@
+<%= form_with model: @comment, url: "/users/user_id/posts/#{params[:post_id]}/comments/create" do |form|%>
+
+<%= form.label :text, 'Add Comment' %>
+
+<%= form.text_field :text%>
+<br/>
+<%= form.submit%>
+<% end %>

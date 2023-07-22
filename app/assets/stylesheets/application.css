@@ -15,14 +15,43 @@
  */
 button {
   display: flex;
-  align-self: center;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; 
   box-shadow: 0 8px 5px 1px;
+  border: 2px solid #000; 
+  border-radius: 0.2rem; 
+  box-sizing: border-box; 
+  color: #3B3B3B;
+  cursor: pointer;  
+  font-size: 12px; 
+  font-weight: 500; 
+  padding: 16px 24px; 
+  text-align: center; 
+  text-decoration: none; 
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1); 
   width: 16%;
-  background-color: transparent;
-  border-color: #000;
+  will-change: transform;
+  margin-top: 12px;
+  text-decoration: none; 
 }
- 
+
+button:disabled { 
+  pointer-events: none; 
+}
+
+button:hover { 
+  color: #fff;
+  background-color: #1A1A1A; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px; 
+  transform: translateY(-2px); 
+} 
+
+button:active{
+  box-shadow: none; 
+  transform: translateY(0); 
+}
+
 #each-user {
     display: flex;
     justify-content: center;
@@ -94,4 +123,8 @@ button {
   
   .show-posts-container {
     margin: 20px 40px;
+  }
+
+  .comment-button{
+
   }
