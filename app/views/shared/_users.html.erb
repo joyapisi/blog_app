@@ -1,0 +1,10 @@
+<div id="each-user">
+    <div class="boxes img-card">
+      <img src=<%= user.photo %> alt="profile" class="img-card">
+    </div>
+    <div class=" boxes user-card" >
+      <a href="/users/<%= user.id%>"> <h2 class="user-name"> <%= user.name %></h2></a>
+      <p class="post-counter">Number of posts: <%= user.update_user_posts_counter%> </p>
+    </div>
+ 
+</div>
