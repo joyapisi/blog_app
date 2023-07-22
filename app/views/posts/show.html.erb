@@ -9,7 +9,9 @@
   </div>
 
   <%= render 'shared/like' %>
-    <a href=<%="/users/user_id/posts/#{@post.id}/comments/new"%>>Comment</a>
+    <button>
+      <a class="comment-button" href=<%="/users/user_id/posts/#{@post.id}/comments/new"%>>Comment</a>
+    </button>
 
   <div class="boxes posts-messages">
     <% @post.comments.each do |comment| %>
