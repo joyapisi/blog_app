@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: 'User', counter_cache: true
   has_many :comments, foreign_key: :post_id
   has_many :likes, foreign_key: :post_id
 
-  before_create :increment_author_posts_counter
+  # before_create :increment_author_posts_counter
 
   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
 
@@ -21,10 +21,10 @@ class Post < ApplicationRecord
     likes.count
   end
 
-  private
+  # private
 
-  def increment_author_posts_counter
-    author.increment(:update_user_posts_counter)
-    author.save
-  end
+  # def increment_author_posts_counter
+  #   author.increment(:update_user_posts_counter)
+  #   author.save
+  # end
 end

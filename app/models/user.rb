@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :likes, class_name: 'Like', foreign_key: 'author_id', dependent: :destroy
   has_many :comments, class_name: 'Comment', foreign_key: 'author_id', dependent: :destroy
 
-  scope :recent_posts, ->(user) { user.posts.order('created_at DESC').limit(3) }
+  scope :recent_posts, ->(user) { user.posts.includes(:comments).order('created_at DESC').limit(3) }
   # attribute :update_user_posts_counter, :integer, default: 0
 
   validates :name, presence: true
