@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'posts/index', type: :view do
   before do
     @user = create(:user)
-    @posts = create_list(:post, 5, author: @user) 
+    @posts = create_list(:post, 5, author: @user)
     render
   end
 
