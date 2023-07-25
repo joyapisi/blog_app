@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   scope :recent_posts, ->(user) { user.posts.includes(:comments).order('created_at DESC').limit(3) }
   # attribute :update_user_posts_counter, :integer, default: 0
+  attribute :posts_counter, :integer, default: 0
 
   validates :name, presence: true
   # validates :update_user_posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

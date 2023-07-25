@@ -3,8 +3,6 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: :post_id
   has_many :likes, foreign_key: :post_id
 
-  # before_create :increment_author_posts_counter
-
   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
 
   validates :title, presence: true, length: { maximum: 250 }
@@ -20,11 +18,4 @@ class Post < ApplicationRecord
   def likes_counter
     likes.count
   end
-
-  # private
-
-  # def increment_author_posts_counter
-  #   author.increment(:update_user_posts_counter)
-  #   author.save
-  # end
 end
