@@ -53,6 +53,8 @@ group :development, :test do
   gem 'capybara'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  # gem 'chromedriver-helper'
   gem 'shoulda-matchers'
   gem 'webdrivers'
 end
