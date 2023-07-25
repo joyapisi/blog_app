@@ -6,7 +6,6 @@ RSpec.describe 'posts/show', type: :system do
 
     post = Post.create(author: user, title: 'Post Title', text: 'Post body')
 
-
     Comment.create(author: user, post:, text: 'Comment message 1')
     Comment.create(author: user, post:, text: 'Comment message 2')
 
