@@ -8,6 +8,7 @@
             Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter%>
         </p>
 </div>
+
 <div class="boxes">
 <% Post.recent_comments(post).each  do |comment|%>
     <p><%= comment.author.name%> - <%= comment.text %></p>

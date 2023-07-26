@@ -7,13 +7,16 @@
 </div>
 <% User.recent_posts(@user).each do |post| %>
     <div class="boxes">
-        <h1>post <%= post.title %></h1>
+    <h1>
+      <a href="/users/<%= @user.id%>/posts">
+      <%= post.title %></a>
+    </h1>
         <p><%= post.text %></p>
         <p class="likes-comments">Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
     </div>
 <%end%>
     
 <button>
-<a href="/users/<%= @user.id%>/posts" >See all Posts</a>
+<a href="/users/<%= @user.id%>/posts">See all Posts</a>
 </button>
 </article>
