@@ -1,26 +1,33 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :feature do
+RSpec.describe 'Posts', type: :feature do
   before(:each) do
-    @wajo = User.create(name: 'Wajo', photo: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80', bio: 'Teacher from Poland',
+    url1 = 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
+
+    user1 = User.create(name: 'Wajo',
+                        photo: url1,
+                        bio: 'Teacher from Poland',
                         posts_counter: 0)
-    @post1 = Post.create(title: 'Second post',
-                         text: 'This is my second post',
-                         comments_counter: 0,
-                         likes_counter: 0,
-                         author: @wajo)
-    @comment1 = Comment.create(text: 'Awesome!', author_id: @wajo.id, post_id: @post1.id)
+
+    post1 = Post.create(title: 'Second post',
+                        text: 'This is my second post',
+                        comments_counter: 0,
+                        likes_counter: 0,
+                        author: user1)
+    Comment.create(text: 'Awesome!', author_id: user1.id, post_id: post1.id)
   end
 
   describe 'post index' do
     before(:each) do
-      visit "/users/#{@wajo.id}/posts"
+      visit "/users/#{user1.id}/posts"
     end
+    url1 = 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
+
     it 'Enables user to view the user\'s photo.' do
-      expect(page).to have_xpath("//img[contains(@src,'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')]")
+      expect(page).to have_xpath("//img[contains(@src,'#{url1}')]")
     end
     it 'Enables user to view the user\'s username.' do
-      expect(page).to have_content(@wajo.name)
+      expect(page).to have_content(user1.name)
     end
     it 'Enables user to view the number of posts the user has written.' do
       expect(page).to have_content 'Number of posts: 1'
@@ -53,7 +60,7 @@ RSpec.describe 'Users', type: :feature do
 
   describe 'post show' do
     before(:each) do
-      visit "/users/#{@wajo.id}/posts/#{@post1.id}"
+      visit "/users/#{user1.id}/posts/#{post1.id}"
     end
     it 'Enables user to view the posts title.' do
       expect(page).to have_content 'post 1 title'
@@ -74,7 +81,7 @@ RSpec.describe 'Users', type: :feature do
       expect(page).to have_content 'post content 1'
     end
     it 'Enables user to view the username of each commentor.' do
-      expect(page).to have_content @wajo.name.to_s
+      expect(page).to have_content user1.name.to_s
     end
     it 'Enables user to view the comment each commentor left.' do
       expect(page).to have_content 'First comment from Abel'
