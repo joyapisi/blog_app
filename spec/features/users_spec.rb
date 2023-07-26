@@ -4,7 +4,8 @@ RSpec.describe 'User', type: :feature do
   before(:each) do
     @wajo = User.create(name: 'Wajo', photo: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80', bio: 'Teacher from Poland',
                         posts_counter: 0)
-    @tom = User.create(name: 'Tom', photo: 'https://images.unsplash.com/photo-1504199367641-aba8151af406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80', bio: 'Developer from Kenya', posts_counter: 0)
+    @tom = User.create(name: 'Tom',
+                       photo: 'https://images.unsplash.com/photo-1504199367641-aba8151af406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80', bio: 'Developer from Kenya', posts_counter: 0)
   end
 
   describe 'user#index' do
