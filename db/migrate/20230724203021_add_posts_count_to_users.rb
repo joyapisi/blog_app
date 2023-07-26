@@ -1,4 +1,4 @@
-class AddCounterCaches < ActiveRecord::Migration[7.0]
+class AddPostsCountToUsers < ActiveRecord::Migration[7.0]
   def change
   
     # Populate the posts_count column with the current number of associated posts for each user
