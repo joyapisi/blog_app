@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: :post_id
   has_many :likes, foreign_key: :post_id
 
-  before_create :increment_author_posts_counter
+  before_save -> { User.find_by(id: author.id).increment!(:posts_counter) }
 
   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
 
@@ -19,12 +19,5 @@ class Post < ApplicationRecord
   # Define likes_counter method to get the count of likes
   def likes_counter
     likes.count
-  end
-
-  private
-
-  def increment_author_posts_counter
-    author.increment(:update_user_posts_counter)
-    author.save
   end
 end
