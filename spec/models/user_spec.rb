@@ -1,5 +1,5 @@
 # require_relative '../app/models/user.rb'
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
