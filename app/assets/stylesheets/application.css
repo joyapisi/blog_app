@@ -30,7 +30,7 @@ button {
   text-align: center; 
   text-decoration: none; 
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1); 
-  width: 16%;
+  width: 100%;
   will-change: transform;
   margin-top: 12px;
   text-decoration: none; 
@@ -124,7 +124,24 @@ button:active{
   .show-posts-container {
     margin: 20px 40px;
   }
-
-  .comment-button{
-
+ 
+  .all-forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    gap: 5px;
   }
+
+  input {
+  border: 2px solid #000;
+  border-radius: none;
+  }
+
+  .actions {
+    border: none;
+    background-color: transparent;
+  }
+
+  
