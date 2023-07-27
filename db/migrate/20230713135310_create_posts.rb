@@ -11,5 +11,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
+    add_column :posts, :user_id, :integer
+
   end
 end

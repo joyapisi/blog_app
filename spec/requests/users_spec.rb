@@ -20,17 +20,17 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET #show' do
     it 'returns a successful response' do
-      get user_path(2)
+      get users_path(1)
       expect(response).to have_http_status(:success)
     end
 
     it 'renders the show template' do
-      get user_path(2)
+      get users_path(1)
       expect(response).to render_template(:show)
     end
 
     it 'includes correct placeholder text in the response body' do
-      get user_path(2)
+      get users_path(1)
       expect(response.body).to include('Users Show')
     end
   end
