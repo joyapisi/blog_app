@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @posts = Post.includes(:comments).where(user_id: params[:id])
     @user = User.find(params[:user_id])
@@ -13,17 +14,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.author_id = current_user.id
-    @post.likes_counter = 0
-    @post.comments_counter = 0
-
-    if @post.save
-      redirect_to users_path
+    if current_user
+      @post = Post.new(post_params)
+      @post.author_id = current_user.id
+      @post.likes_counter = 0
+      @post.comments_counter = 0
+    
+      if @post.save
+        redirect_to users_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to near
     end
+
   end
+
 
   private
 
