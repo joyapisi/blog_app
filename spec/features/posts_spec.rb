@@ -4,7 +4,7 @@ RSpec.describe 'Posts', type: :feature do
   let(:url1) { 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80' }
   let!(:user1) do
     User.create(
-      name: 'Wajo',
+      name: 'Lilly',
       photo: url1,
       bio: 'Teacher from Poland',
       posts_counter: 0
@@ -12,10 +12,17 @@ RSpec.describe 'Posts', type: :feature do
   end
   let!(:post1) do
     Post.create(
-      title: 'Second post',
-      text: 'This is my second post',
+      title: 'Drop By',
+      text: 'This is my first post',
       comments_counter: 0,
       likes_counter: 0,
+      author: user1
+    )
+  end
+  let!(:comment1) do
+    Comment.create(
+      text: 'This is my first comment',
+      post: post1,
       author: user1
     )
   end
@@ -31,16 +38,16 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content(user1.name)
     end
     it 'Enables user to view the number of posts the user has written.' do
-      expect(page).to have_content 'Number of posts: 1'
+      expect(page).to have_content 'Number of posts: 0'
     end
     it 'Enables user to view a post\'s title.' do
-      expect(page).to have_content 'Second post'
+      expect(page).to have_content 'Drop By'
     end
     it 'Enables user to view some of the post\'s body.' do
-      expect(page).to have_content 'This is my second post'
+      expect(page).to have_content 'This is my first post'
     end
     it 'Enables user to view the first comments on a post.' do
-      expect(page).to have_content 'Awesome!'
+      expect(page).to have_content 'This is my first comment'
     end
     it 'Enables user to view how many comments a post has.' do
       expect(page).to have_content 'Comments: 1'
@@ -54,8 +61,8 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content 'Pagination'
     end
     it 'When I click on a post, it redirects me to that posts show page.' do
-      click_link 'Second post'
-      expect(page).to have_content 'This is my second post'
+      click_link 'Drop By'
+      expect(page).to have_content 'This is my first post'
     end
   end
 
@@ -64,28 +71,28 @@ RSpec.describe 'Posts', type: :feature do
       visit "/users/#{user1.id}/posts/#{Post.first.id}"
     end
     it 'Enables user to view the posts title.' do
-      expect(page).to have_content 'Second Post'
+      expect(page).to have_content 'Drop By'
     end
     it 'Enables user to view who wrote the post.' do
-      expect(page).to have_content 'Wajo'
-      expect(page).to have_content 'Second Post by Wajo'
+      expect(page).to have_content 'Lilly'
+      expect(page).to have_content 'Drop By by Lilly'
     end
     it 'Enables user to view how many comments it has.' do
       expect(page).to have_content 'Comments: 1'
       expect(page).to_not have_content 'Comments: 0'
     end
     it 'Enables user to view how many likes it has.' do
-      expect(page).to have_content 'likes: 0'
+      expect(page).to have_content 'Likes: 0'
       expect(page).to_not have_content 'likes: 1'
     end
     it 'Enables user to view the post body.' do
-      expect(page).to have_content 'post content 1'
+      expect(page).to have_content 'This is my first post'
     end
     it 'Enables user to view the username of each commentor.' do
       expect(page).to have_content user1.name.to_s
     end
     it 'Enables user to view the comment each commentor left.' do
-      expect(page).to have_content 'First comment from Tom'
+      expect(page).to have_content 'Lilly: This is my first comment'
     end
   end
 end
