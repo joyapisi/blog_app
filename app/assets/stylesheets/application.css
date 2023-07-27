@@ -13,24 +13,23 @@
  *= require_tree .
  *= require_self
  */
-button {
+ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: center;
   background-color: transparent; 
   box-shadow: 0 8px 5px 1px;
-  border: 2px solid #000; 
-  border-radius: 0.2rem; 
-  box-sizing: border-box; 
+  border: 2px solid #000;  
   color: #3B3B3B;
   cursor: pointer;  
   font-size: 12px; 
   font-weight: 500; 
-  padding: 16px 24px; 
+  padding: 5px; 
   text-align: center; 
   text-decoration: none; 
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1); 
-  width: 100%;
+  width: 100vh;
   will-change: transform;
   margin-top: 12px;
   text-decoration: none; 
@@ -41,8 +40,8 @@ button:disabled {
 }
 
 button:hover { 
-  color: #fff;
-  background-color: #1A1A1A; 
+  color: #000;
+  background-color: #dbdbdb; 
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px; 
   transform: translateY(-2px); 
 } 
@@ -135,13 +134,33 @@ button:active{
   }
 
   input {
-  border: 2px solid #000;
-  border-radius: none;
+    border: 2px solid #000;
+    border-radius: none;
   }
 
   .actions {
+    background-color: transparent;
+  }
+
+  #inner-button {
     border: none;
     background-color: transparent;
   }
 
-  
+  form, .field, input {
+    width: 100vh;
+    margin-bottom: 5px;
+    border-radius: 0;
+    padding: 5px;
+  }
+
+  #flex {
+    display: flex;
+  }
+
+  .remember-me {
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 8px;
+    gap: 70%;
+  }

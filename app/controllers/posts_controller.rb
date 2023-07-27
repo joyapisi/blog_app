@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
   def index
     @posts = Post.includes(:comments).where(user_id: params[:id])
     @user = User.find(params[:user_id])
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
       @post.author_id = current_user.id
       @post.likes_counter = 0
       @post.comments_counter = 0
-    
+
       if @post.save
         redirect_to users_path
       else
