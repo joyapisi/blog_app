@@ -16,7 +16,6 @@
   - [:hammer\_and\_wrench: Built With ](#hammer_and_wrench-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🦻 WalkThrough Video ](#walkthrough-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -61,7 +60,7 @@ This is a fully functional blog website that displays the list of posts and empo
 ### Key Features <a name="key-features"></a>
 
 - **Use Rails framework to generate a fully functional website** 
-- **Implement classes and objects in Ruby**
+- **Run tests using Capybara**
 - **Implement encapsulation and inheritance with Ruby**
 - **Run a program using the command line**
 - **Implement composition.**
@@ -71,14 +70,6 @@ This is a fully functional blog website that displays the list of posts and empo
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- WalkThrough Video -->
-
-## 🦻 WalkThrough Video <a name="#walkthrough-demo"></a>
-
--  [WalkThrough Video coming soon]()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -107,11 +98,17 @@ Not yet deployed ...
 - Twitter: [@joyphoebe300](https://twitter.com/joyphoebe300)
 - LinkedIn: [Joy Phoebe](https://www.linkedin.com/in/joyapisi/)
 
+:bust_in_silhouette: **Lawrence Amoafo**
+
+- GitHub: [@Kwaku28](https://github.com/Kwaku28)
+- Twitter: [@kwakuamoafo](https://twitter.com/kwakuamoafo)
+- LinkedIn: [Lawrence Amoafo](https://linkedin.com/in/lawrence-amoafo-appoh)
+
 <!-- FUTURE FEATURES -->
 
 ## :telescope: Future Features <a name="future-features"></a><br/>
-- [ ] **Adding multip databases**<br/>
-- [ ] **Add more operations**
+- [ ] **Adding multiple databases**<br/>
+- [ ] **Add more styling and operations**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- CONTRIBUTING -->
 
