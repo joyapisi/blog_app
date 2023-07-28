@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
     if current_user == @post.author
       @post.destroy
       redirect_to root_path, notice: "Your post was successfully deleted."

@@ -11,7 +11,7 @@
       </ul>
 
 <% end%>
-<%= form_with url: "/users/user_id/posts/create", model: @post do |form|%>
+<%= form_with url: user_posts_path, model: @post do |form|%>
 <%= form.label :title %>
 <%= form.text_field :title%>
 <br/>

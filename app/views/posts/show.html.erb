@@ -24,7 +24,13 @@
   
   <div class="smaller-buttons">
     <% if user_signed_in? && current_user == @post.author %>
-      <%= link_to "Delete", destroy_user_post_path(user_id: @post.author, post_id: @post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "delete-button" %>
+      <%= form_with(model: @post, url: user_post_path(params[:user_id], @post), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete_post') do |form| %>
+      <%= form.submit "Delete Post", class:"inner-buttons"%>
     <% end %>
+
+    
+  <% end %>
+
+
   </div>
 </div>
