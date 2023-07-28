@@ -13,27 +13,38 @@
  *= require_tree .
  *= require_self
  */
-button {
+
+button, .smaller-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: center;
   background-color: transparent; 
   box-shadow: 0 8px 5px 1px;
-  border: 2px solid #000; 
-  border-radius: 0.2rem; 
-  box-sizing: border-box; 
+  border: 2px solid #000;  
   color: #3B3B3B;
   cursor: pointer;  
   font-size: 12px; 
   font-weight: 500; 
-  padding: 16px 24px; 
+  padding: 5px; 
   text-align: center; 
   text-decoration: none; 
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1); 
-  width: 16%;
   will-change: transform;
   margin-top: 12px;
   text-decoration: none; 
+}
+
+.smaller-buttons {
+  display: flex;
+  align-self: center;
+  width: 15%;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+button {
+  width: 101.5%;
 }
 
 button:disabled { 
@@ -41,8 +52,8 @@ button:disabled {
 }
 
 button:hover { 
-  color: #fff;
-  background-color: #1A1A1A; 
+  color: #000;
+  background-color: #3a8dfa; 
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px; 
   transform: translateY(-2px); 
 } 
@@ -124,7 +135,44 @@ button:active{
   .show-posts-container {
     margin: 20px 40px;
   }
+ 
+  .all-forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    gap: 5px;
+  }
 
-  .comment-button{
+  input {
+    border: 2px solid #000;
+    border-radius: none;
+  }
 
+  .actions {
+    background-color: transparent;
+  }
+
+  #inner-button {
+    border: none;
+    background-color: transparent;
+  }
+
+  form, .field, input {
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 0;
+    padding: 5px;
+  }
+
+  #flex {
+    display: flex;
+  }
+
+  .remember-me {
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 8px;
+    gap: 70%;
   }

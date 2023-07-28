@@ -8,7 +8,7 @@
 <% User.recent_posts(@user).each do |post| %>
     <div class="boxes">
     <h1>
-      <a href="/users/<%= @user.id%>/posts">
+      <a href="/users/<%= post.author_id%>/posts/<%= post.id %>">
       <%= post.title %></a>
     </h1>
         <p><%= post.text %></p>
@@ -16,7 +16,7 @@
     </div>
 <%end%>
     
-<button>
-<a href="/users/<%= @user.id%>/posts">See all Posts</a>
-</button>
+<div class="smaller-buttons">
+  <a href="/users/<%= @user.id%>/posts">See all Posts</a>
+</div>
 </article>

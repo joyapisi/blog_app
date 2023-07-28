@@ -12,16 +12,14 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖-Decode-a-Morse-code-message](#-Ruby-capstone-)
+- [📖-About Project](#about-project)
   - [:hammer\_and\_wrench: Built With ](#hammer_and_wrench-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🦻 WalkThrough Video ](#walkthrough-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
-    - [Deployment](#deployment)
-  - [:busts\_in\_silhouette: Authors ](#busts_in_silhouette-authors-)
+  - [:busts\_in\_silhouette: Authors ](#authors)
   - [:telescope: Future Features ](#telescope-future-features-)
   - [:handshake: Contributing ](#handshake-contributing-)
   - [:star:️ Show your support ](#star️-show-your-support-)
@@ -61,7 +59,7 @@ This is a fully functional blog website that displays the list of posts and empo
 ### Key Features <a name="key-features"></a>
 
 - **Use Rails framework to generate a fully functional website** 
-- **Implement classes and objects in Ruby**
+- **Run tests using Capybara**
 - **Implement encapsulation and inheritance with Ruby**
 - **Run a program using the command line**
 - **Implement composition.**
@@ -71,14 +69,6 @@ This is a fully functional blog website that displays the list of posts and empo
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- WalkThrough Video -->
-
-## 🦻 WalkThrough Video <a name="#walkthrough-demo"></a>
-
--  [WalkThrough Video coming soon]()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -97,21 +87,23 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 Use git clone command or download ZIP folder
 
-### Deployment
-
-Not yet deployed ...
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+## Authors <a name="authors"></a>
 :bust_in_silhouette: **Joy Phoebe**
 - GitHub: [@joyapisi](https://github.com/joyapisi)
 - Twitter: [@joyphoebe300](https://twitter.com/joyphoebe300)
 - LinkedIn: [Joy Phoebe](https://www.linkedin.com/in/joyapisi/)
 
+:bust_in_silhouette: **Lawrence Amoafo**
+
+- GitHub: [@Kwaku28](https://github.com/Kwaku28)
+- Twitter: [@kwakuamoafo](https://twitter.com/kwakuamoafo)
+- LinkedIn: [Lawrence Amoafo](https://linkedin.com/in/lawrence-amoafo-appoh)
+
 <!-- FUTURE FEATURES -->
 
 ## :telescope: Future Features <a name="future-features"></a><br/>
-- [ ] **Adding multip databases**<br/>
-- [ ] **Add more operations**
+- [ ] **Adding multiple databases**<br/>
+- [ ] **Add more styling and operations**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- CONTRIBUTING -->
 
