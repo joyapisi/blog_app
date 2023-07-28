@@ -33,12 +33,14 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if current_user == @post.author
+    # if current_user == @post.author
+      @post = Post.find(params[:id])
       @post.destroy
+      @post.likes.destroy_all
+      @post.comments.destroy_all
       redirect_to root_path, notice: "Your post was successfully deleted."
-    else
-      redirect_to root_path, alert: "You are not authorized to delete this post."
-    end
+    # else
+    # end
   end
 
   private
