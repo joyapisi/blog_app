@@ -152,16 +152,11 @@ button:active{
 
   .actions {
     background-color: transparent;
-    /* width: 100%; */
   }
 
   #inner-button {
     border: none;
     background-color: transparent;
-    /* box-shadow: 0 8px 5px 1px; */
-    /* border: 2px solid #000;   */
-    /* color: #3B3B3B; */
-    /* cursor: pointer;   */
   }
 
   form, .field, input {
