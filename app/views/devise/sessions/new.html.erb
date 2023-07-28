@@ -1,4 +1,4 @@
-<div class="all-forms">
+<div class="all-forms flex">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,15 +13,19 @@
   <% if devise_mapping.rememberable? %>
     <div class="field remember-me" id="flex">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, class:"flex" %>
     </div>
   <% end %>
 
-  <button>
-  <div class="actions">
+  
+ 
+    <div class="actions field">
+    <button>
     <%= f.submit "Log in", id:"inner-button" %>
-  </div>
-  </button>
+    </button>
+    </div>
+  
+ 
 <% end %>
 
 <%= render "devise/shared/links" %>

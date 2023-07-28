@@ -5,6 +5,8 @@ class Post < ApplicationRecord
 
   scope :recent_comments, ->(post) { post.comments.order('created_at DESC').limit(5) }
 
+  before_save :increment_posts
+
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
@@ -17,5 +19,9 @@ class Post < ApplicationRecord
   # Define likes_counter method to get the count of likes
   def likes_counter
     likes.count
+  end
+
+  def increment_posts
+    User.find_by(id: author.id).increment!(:posts_counter)
   end
 end

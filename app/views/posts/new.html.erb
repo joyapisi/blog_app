@@ -1,3 +1,4 @@
+<div class="all-forms">
 <h1>New Post</h1>
 <% if @post.errors.any? %>
     <div style="color: red">
@@ -8,6 +9,7 @@
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
+
 <% end%>
 <%= form_with url: "/users/user_id/posts/create", model: @post do |form|%>
 <%= form.label :title %>
@@ -16,5 +18,8 @@
 <%= form.label :text %>
 <%= form.text_field :text%>
 <br/>
-<%= form.submit%>
+
+<%= form.submit %>
+
 <%end%>
+</div>

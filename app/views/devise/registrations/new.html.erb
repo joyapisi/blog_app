@@ -1,4 +1,4 @@
-<div class="all-forms">
+<div class="all-forms flex">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -6,7 +6,7 @@
 
   <div class="field">
   
-    <%= f.email_field :email, placeholder:"email", autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, placeholder:"Username(email)", autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -14,7 +14,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, placeholder:"password", autocomplete: "new-password" %>
+    <%= f.password_field :password, placeholder:"Password", autocomplete: "new-password" %>
   </div>
 
   <div class="field">
@@ -22,11 +22,13 @@
     <%= f.password_field :password_confirmation, placeholder:"password_confirmation", autocomplete: "new-password" %>
   </div>
 
-  <button>
-  <div class="actions">
-    <%= f.submit "Sign up", id:"inner-button" %>
+
+  <div class="actions field">
+    <button>
+      <%= f.submit "Sign up", id:"inner-button" %>
+    </button>
   </div>
-  </button>
+  
 <% end %>
 
 <%= render "devise/shared/links" %>

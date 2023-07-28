@@ -12,15 +12,14 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖-Decode-a-Morse-code-message](#-Ruby-capstone-)
+- [📖-About Project](#about-project)
   - [:hammer\_and\_wrench: Built With ](#hammer_and_wrench-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
-    - [Deployment](#deployment)
-  - [:busts\_in\_silhouette: Authors ](#busts_in_silhouette-authors-)
+  - [:busts\_in\_silhouette: Authors ](#authors)
   - [:telescope: Future Features ](#telescope-future-features-)
   - [:handshake: Contributing ](#handshake-contributing-)
   - [:star:️ Show your support ](#star️-show-your-support-)
@@ -88,11 +87,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 Use git clone command or download ZIP folder
 
-### Deployment
-
-Not yet deployed ...
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+## Authors <a name="authors"></a>
 :bust_in_silhouette: **Joy Phoebe**
 - GitHub: [@joyapisi](https://github.com/joyapisi)
 - Twitter: [@joyphoebe300](https://twitter.com/joyphoebe300)
