@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!, except: %i[index show]
   # , only: [:new, :create, :destroy]
   def index
@@ -32,15 +33,26 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @post
+
     @post = Post.find(params[:id])
     # if current_user == @post.author
-      @post = Post.find(params[:id])
-      @post.destroy
-      @post.likes.destroy_all
-      @post.comments.destroy_all
-      redirect_to root_path, notice: "Your post was successfully deleted."
+    @post = Post.find(params[:id])
+
+    @post.likes.destroy_all
+    @post.comments.destroy_all
+
+    @post.destroy
+
+    redirect_to root_path, notice: 'Your post was successfully deleted.'
     # else
     # end
+  end
+
+  def like
+    @post = Post.find(params[:id])
+    Like.create(author_id: current_user.id, post_id: @post.id)
+    redirect_back(fallback_location: root_path)
   end
 
   private
