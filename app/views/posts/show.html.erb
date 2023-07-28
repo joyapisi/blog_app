@@ -11,7 +11,7 @@
     <p> <%= @post.text%></p>
   </div>
 
-  <%= render 'shared/like' %>
+  <%= render 'shared/like', model: @like, url: post_like_path(@post, :post_id) %>
     <div class="smaller-buttons">
       <a class="comment-button" href=<%="/users/user_id/posts/#{@post.id}/comments/new"%>>Comment</a>
     </div>
@@ -19,18 +19,21 @@
   <div class="boxes posts-messages">
     <% @post.comments.each do |comment| %>
      <p><%= comment.author.name%>: <%= comment.text %></p>
+      <div class="smaller-buttons">
+        <% if can? :destroy, comment %>
+          <%= form_with(model: @comment, url: user_post_comment_path(params[:user_id], @post, comment), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete_post') do |form| %>
+            <%= form.submit "Delete comment", class:"inner-buttons"%>
+          <% end %>
+        <% end %>
+      </div>
     <%end%>
   </div>
   
   <div class="smaller-buttons">
-    <% if user_signed_in? && current_user == @post.author %>
+    <% if can? :destroy, @post %>
       <%= form_with(model: @post, url: user_post_path(params[:user_id], @post), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'delete_post') do |form| %>
-      <%= form.submit "Delete Post", class:"inner-buttons"%>
+        <%= form.submit "Delete Post", class:"inner-buttons"%>
+      <% end %>
     <% end %>
-
-    
-  <% end %>
-
-
   </div>
 </div>
