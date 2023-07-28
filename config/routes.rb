@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "users#index"
+  root to: 'users#index'
   # resources :users
   
   get '/users', to: 'users#index'

@@ -25,4 +25,5 @@
 
 <% if current_user == @post.author %>
   <%= button_to "Delete", post_path(@post), method: :delete %>
+  <a href="/users/<%= post.author_id%>/posts/<%= post.id %>">
 <% end %>
