@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   post 'users/:user_id/posts/:post_id/likes/create', to: 'likes#create'
 
+  delete '/users/:user_id/posts/:post_id', to: 'posts#destroy', as: 'destroy_user_post'
   # resources :users, only: [:index, :show] do
   #   resources :posts, only: [:index, :show]
   # end
