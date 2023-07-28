@@ -22,3 +22,7 @@
     <%end%>
   </div>
 </div>
+
+<% if current_user == @post.author %>
+  <%= button_to "Delete", post_path(@post), method: :delete %>
+<% end %>
