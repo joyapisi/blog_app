@@ -1,23 +1,18 @@
 module Api
   class ApiController < ActionController::API
-    # layout false
-    def create
-      @user = User.find(params[:user_id])
-      @post = @user.posts.find(params[:post_id])
-      @comment = @post.comments.build(comment_params)
-      @comment.user = @user
-
-      if @comment.save
-        render json: @comment, status: :created
-      else
-        render json: { error: 'Error creating comment.' }, status: :unprocessable_entity
-      end
+    def not_found
+      render json: { error: 'not_found' }
     end
-
-    private
-
-    def comment_params
-      params.require(:comment).permit(:text)
+  
+    def authorize_request
+      header = request.headers['Authorization']
+      header = header.split.last if header
+      begin
+        @decoded = JsonWebToken.decode(header)
+        @user = User.find(@decoded[:user_id])
+      rescue ActiveRecord::RecordNotFound => e
+        render json: { errors: e.message }, status: :unauthorized
+      end
     end
   end
 end
