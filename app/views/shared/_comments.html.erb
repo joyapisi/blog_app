@@ -1,4 +1,4 @@
-<%= form_with model: @comment, url: "/users/user_id/posts/#{params[:post_id]}/comments/create" do |form|%>
+<%= form_with model: @comment, url: user_post_comments_path do |form|%>
 
 <%= form.label :text, 'Add Comment' %>
 
