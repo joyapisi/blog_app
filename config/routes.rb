@@ -4,27 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: 'users#index'
-  # resources :users
-  
-  # get '/users', to: 'users#index'
 
-  # get '/users/:user_id', to: 'users#show', as: 'user'
-
-  # get '/users/:user_id/posts', to: 'posts#index', as: 'user_posts'
-
-  # get '/users/:user_id/posts/new', to: 'posts#new'
-
-  # get '/users/:user_id/posts/:post_id', to: 'posts#show', as: 'user_post'
-
-  # post '/users/:user_id/posts/create', to: 'posts#create'
-
-  # get 'users/:user_id/posts/:post_id/comments/new', to: 'comments#new'
-
-  # post 'users/:user_id/posts/:post_id/comments/create', to: 'comments#create'
-
-  # post 'users/:user_id/posts/:post_id/likes/create', to: 'likes#create'
-
-  # delete '/users/:user_id/posts/:post_id', to: 'posts#destroy', as: 'destroy_user_post'
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :show, :create, :destroy] do
       resources :comments, only: [:new, :create, :destroy]
@@ -33,4 +13,13 @@ Rails.application.routes.draw do
   end
 
   post '/users/:id/posts/:post_id/like', to: 'posts#like', as: 'post_like'
+  namespace :api do
+    resources :users, only: [] do
+      resources :posts, only: [:index]
+      resources :posts, only: [] do
+        resources :comments, only: [:index, :create], controller: 'comments'
+      end
+    end
+  end
+  
 end
