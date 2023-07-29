@@ -78,7 +78,7 @@ group :test do
   # gem 'webdrivers'
 end
 
+gem 'bcrypt', '~>3.1.7'
 gem 'cancancan'
 gem 'devise', '~> 4.9'
 gem 'jwt'
-gem 'bcrypt', '~>3.1.7'

@@ -13,4 +13,13 @@ Rails.application.routes.draw do
   end
 
   post '/users/:id/posts/:post_id/like', to: 'posts#like', as: 'post_like'
+  namespace :api do
+    resources :users, only: [] do
+      resources :posts, only: [:index]
+      resources :posts, only: [] do
+        resources :comments, only: [:index, :create], controller: 'comments'
+      end
+    end
+  end
+  
 end
