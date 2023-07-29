@@ -45,10 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_161007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "comments_count", default: 0
-    t.integer "likes_count", default: 0
     t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

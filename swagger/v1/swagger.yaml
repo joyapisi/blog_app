@@ -1,0 +1,257 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  api/users/:user_id/posts/:post_id/comments:
+    post:
+      summary: Creates a comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                user_id:
+                  type: integer
+                post_id:
+                  type: integer
+              required:
+              - text
+              - user_id
+              - post_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                user_id:
+                  type: integer
+                post_id:
+                  type: integer
+              required:
+              - text
+              - user_id
+              - post_id
+  "/api/users/:user_id/posts/:post_id/comments/{id}":
+    get:
+      summary: Retrieves a comment
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: comments found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                    post_id:
+                      type: integer
+                  required:
+                  - id
+                  - text
+                  - user_id
+                  - post_id
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                    post_id:
+                      type: integer
+                  required:
+                  - id
+                  - text
+                  - user_id
+                  - post_id
+        '404':
+          description: comments not found
+  api/users/:user_id/posts:
+    post:
+      summary: Creates a post
+      tags:
+      - Posts
+      parameters: []
+      responses:
+        '201':
+          description: post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - title
+              - text
+              - user_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - title
+              - text
+              - user_id
+    get:
+      summary: Retrieves all posts
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: posts found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - id
+                  - title
+                  - text
+                  - user_id
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - id
+                  - title
+                  - text
+                  - user_id
+        '404':
+          description: posts not found
+  "/api/users/:user_id/posts/{id}":
+    get:
+      summary: Retrieves a post
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: posts found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - id
+                  - title
+                  - text
+                  - user_id
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    text:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - id
+                  - title
+                  - text
+                  - user_id
+        '404':
+          description: posts not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

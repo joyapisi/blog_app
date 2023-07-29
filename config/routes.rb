@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   devise_for :users, controllers: { confirmations: 'confirmations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: 'users#index'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   post '/users/:id/posts/:post_id/like', to: 'posts#like', as: 'post_like'
   namespace :api do
     resources :users, only: [] do
-      resources :posts, only: [:index]
+      resources :posts, only: [:index, :create]
       resources :posts, only: [] do
         resources :comments, only: [:index, :create], controller: 'comments'
       end

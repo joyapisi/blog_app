@@ -78,7 +78,17 @@ group :test do
   # gem 'webdrivers'
 end
 
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem 'bcrypt', '~>3.1.7'
+
+#Use CanCanCan for authorization
 gem 'cancancan'
+
+#Use Devise for authentication
 gem 'devise', '~> 4.9'
+
+# Use JWT for authentication [https://jwt.io/]
 gem 'jwt'
+
+# Use Rswag to document API endpoints [https://github.com/rswag/rswag#getting-started]
+gem 'rswag'
